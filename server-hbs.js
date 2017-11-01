@@ -3,6 +3,7 @@
   const fs =require('fs');
   var app = express();
   
+  const port = process.env.PORT || 3000; //Heroku is going to set PORT env variable. but when we run it on our local machine PORT wont be available so setting it to 3000
   hbs.registerPartials(__dirname+"/views/partial");
   app.set('view engine','hbs');
   app.use(express.static(__dirname+"/public")); // for static pages inside a folder Add the middleware
@@ -61,4 +62,6 @@
 		  Error:"Unable to handle the request"
 	  })
   });
-  app.listen(3000);
+  app.listen(port,()=>{
+	  console.log(`Server is up on port ${port}`)
+  });
