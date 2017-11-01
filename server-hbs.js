@@ -62,6 +62,12 @@
 		  Error:"Unable to handle the request"
 	  })
   });
+    app.get('/projects',(req,res)=>{
+	  res.render('projects.hbs',{
+		  PageTitle:"Projects",
+		  Content:"This is Projects Page"
+	  });
+  });
   app.listen(port,()=>{
 	  console.log(`Server is up on port ${port}`)
   });
